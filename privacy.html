@@ -3,87 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Stache-it</title>
+    <title>Privacy Policy — Stache-it</title>
+    <meta name="description" content="Stache-it Privacy Policy. Your data stays on your device and in your personal iCloud account. No tracking, no ads, no third-party analytics.">
+    <link rel="icon" type="image/png" href="app-icon.png">
+    <link rel="apple-touch-icon" href="app-icon.png">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
             background-color: #1c1c1e;
             color: #f5e6d3;
+            -webkit-font-smoothing: antialiased;
         }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(28, 28, 30, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(160, 82, 45, 0.2);
+        }
+
+        .nav-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #f5e6d3;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .nav-brand img {
+            width: 32px;
+            height: 32px;
+            border-radius: 7px;
+        }
+
+        .nav-links a {
+            color: #a0522d;
+            text-decoration: none;
+            margin-left: 28px;
+            font-size: 0.95em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #c0724d;
+        }
+
+        .content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 100px 24px 60px;
+        }
+
         h1 {
             color: #f5e6d3;
+            font-size: 2.2em;
+            font-weight: 700;
             border-bottom: 2px solid #a0522d;
-            padding-bottom: 10px;
+            padding-bottom: 12px;
+            margin-bottom: 8px;
         }
+
+        .last-updated {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 32px;
+        }
+
         h2 {
             color: #a0522d;
-            margin-top: 30px;
+            margin-top: 36px;
+            margin-bottom: 12px;
+            font-size: 1.3em;
         }
+
         h3 {
             color: #f5e6d3;
+            margin-top: 16px;
+            margin-bottom: 8px;
+            font-size: 1.05em;
         }
-        a {
-            color: #a0522d;
+
+        p {
+            margin-bottom: 12px;
+            color: #c4b5a5;
         }
+
+        ul {
+            margin: 8px 0 12px 24px;
+            color: #c4b5a5;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
         strong {
             color: #f5e6d3;
+        }
+
+        a {
+            color: #a0522d;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #c0724d;
+        }
+
+        footer {
+            text-align: center;
+            padding: 32px 24px;
+            border-top: 1px solid rgba(160, 82, 45, 0.12);
+        }
+
+        .footer-links {
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 0.9em;
+        }
+
+        .footer-copy {
+            color: #555;
+            font-size: 0.85em;
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                padding: 90px 16px 40px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-links a {
+                margin-left: 16px;
+                font-size: 0.85em;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Privacy Policy for Stache-it</h1>
-    <p><strong>Last Updated: February 2, 2026</strong></p>
 
-    <p>SAS LLC ("we," "our," or "us") operates the Stache-it mobile application (the "App"). This Privacy Policy explains how we collect, use, and protect your information when you use our App.</p>
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="app-icon.png" alt="Stache-it icon">
+                Stache-it
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="mailto:support@stache-it.com">Support</a>
+            </div>
+        </div>
+    </nav>
 
-    <h2>Information We Collect</h2>
+    <div class="content">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last Updated: February 2, 2026</p>
 
-    <h3>Data You Provide</h3>
-    <ul>
-        <li><strong>Stashes</strong>: The labels and facts you create and store within the App. This data is created entirely by you and stored for your personal use.</li>
-    </ul>
+        <p>SAS LLC ("we," "our," or "us") operates the Stache-it mobile application (the "App"). This Privacy Policy explains how we collect, use, and protect your information when you use our App.</p>
 
-    <h3>Data Stored Automatically</h3>
-    <ul>
-        <li><strong>iCloud Data</strong>: Your stashes are stored in your personal iCloud account using Apple's CloudKit service. This enables syncing across your devices. We do not have access to your iCloud credentials or the ability to read your data on Apple's servers.</li>
-    </ul>
+        <h2>Information We Collect</h2>
 
-    <h2>How Your Data Is Stored</h2>
-    <p>All your data is stored locally on your device and in your personal iCloud account. We do not operate our own servers to store your personal data. Your stashes remain under your control through your Apple ID and iCloud account.</p>
+        <h3>Data You Provide</h3>
+        <ul>
+            <li><strong>Staches</strong>: The labels and facts you create and store within the App. This data is created entirely by you and stored for your personal use.</li>
+        </ul>
 
-    <h2>Biometric Authentication</h2>
-    <p>The App offers Face ID or Touch ID authentication to protect access to your stashes. Biometric data is processed entirely by your device's secure enclave and is never accessible to the App or transmitted to any server.</p>
+        <h3>Data Stored Automatically</h3>
+        <ul>
+            <li><strong>iCloud Data</strong>: Your staches are stored in your personal iCloud account using Apple's CloudKit service. This enables syncing across your devices. We do not have access to your iCloud credentials or the ability to read your data on Apple's servers.</li>
+        </ul>
 
-    <h2>Siri Integration</h2>
-    <p>The App integrates with Siri to allow voice commands for creating and retrieving stashes. Voice processing is handled by Apple's Siri service according to Apple's privacy policies. We do not receive or store any voice recordings.</p>
+        <h2>How Your Data Is Stored</h2>
+        <p>All your data is stored locally on your device and in your personal iCloud account. We do not operate our own servers to store your personal data. Your staches remain under your control through your Apple ID and iCloud account.</p>
 
-    <h2>Third-Party Services</h2>
-    <p>The App does not use any third-party analytics, advertising, or tracking services. We do not share your data with third parties.</p>
+        <h2>Biometric Authentication</h2>
+        <p>The App offers Face ID or Touch ID authentication to protect access to your staches. Biometric data is processed entirely by your device's secure enclave and is never accessible to the App or transmitted to any server.</p>
 
-    <h2>Data Retention</h2>
-    <p>Your data remains stored as long as you keep it in the App. You can delete individual stashes or all stashes at any time within the App. Deleting the App will remove all locally stored data. Data stored in iCloud can be managed through your iCloud settings.</p>
+        <h2>Siri Integration</h2>
+        <p>The App integrates with Siri to allow voice commands for creating and retrieving staches. Voice processing is handled by Apple's Siri service according to Apple's privacy policies. We do not receive or store any voice recordings.</p>
 
-    <h2>Children's Privacy</h2>
-    <p>The App does not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us.</p>
+        <h2>Third-Party Services</h2>
+        <p>The App does not use any third-party analytics, advertising, or tracking services. We do not share your data with third parties.</p>
 
-    <h2>Your Rights</h2>
-    <p>You have full control over your data:</p>
-    <ul>
-        <li><strong>Access</strong>: View all your stashes within the App at any time</li>
-        <li><strong>Delete</strong>: Remove individual stashes or clear all data</li>
-        <li><strong>Portability</strong>: Share your stashes using the App's share feature</li>
-    </ul>
+        <h2>Data Retention</h2>
+        <p>Your data remains stored as long as you keep it in the App. You can delete individual staches or all staches at any time within the App. Deleting the App will remove all locally stored data. Data stored in iCloud can be managed through your iCloud settings.</p>
 
-    <h2>Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy within the App or on our website.</p>
+        <h2>Children's Privacy</h2>
+        <p>The App does not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us.</p>
 
-    <h2>Contact Us</h2>
-    <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-    <p><strong>Email</strong>: <a href="mailto:support@stache-it.com">support@stache-it.com</a></p>
-    <p><strong>SAS LLC</strong></p>
+        <h2>Your Rights</h2>
+        <p>You have full control over your data:</p>
+        <ul>
+            <li><strong>Access</strong>: View all your staches within the App at any time</li>
+            <li><strong>Delete</strong>: Remove individual staches or clear all data</li>
+            <li><strong>Portability</strong>: Share your staches using the App's share feature</li>
+        </ul>
+
+        <h2>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy within the App or on our website.</p>
+
+        <h2>Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+        <p><strong>Email</strong>: <a href="mailto:support@stache-it.com">support@stache-it.com</a></p>
+        <p><strong>SAS LLC</strong></p>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="mailto:support@stache-it.com">Contact Support</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 SAS LLC. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
