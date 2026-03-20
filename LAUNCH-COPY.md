@@ -1,7 +1,7 @@
 # Stache-it Launch Copy
 
 App Store link: https://apps.apple.com/app/stache-it/id6748416239
-Website: https://sturmadvisory.github.io/stache-it-website/
+Website: https://stache-it.com
 
 ---
 
