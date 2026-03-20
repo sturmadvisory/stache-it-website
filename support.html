@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — Stache-it™</title>
+    <meta name="description" content="Get help with Stache-it. Frequently asked questions, Siri commands, and contact support.">
+    <link rel="icon" type="image/png" href="app-icon.png">
+    <link rel="apple-touch-icon" href="app-icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            background-color: #1c1c1e;
+            color: #f5e6d3;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(28, 28, 30, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(160, 82, 45, 0.2);
+        }
+
+        .nav-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #f5e6d3;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .nav-brand img {
+            width: 32px;
+            height: 32px;
+            border-radius: 7px;
+        }
+
+        .nav-links a {
+            color: #a0522d;
+            text-decoration: none;
+            margin-left: 28px;
+            font-size: 0.95em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #c0724d;
+        }
+
+        .content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 100px 24px 60px;
+        }
+
+        h1 {
+            color: #f5e6d3;
+            font-size: 2.2em;
+            font-weight: 700;
+            border-bottom: 2px solid #a0522d;
+            padding-bottom: 12px;
+            margin-bottom: 32px;
+        }
+
+        h2 {
+            color: #a0522d;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            font-size: 1.4em;
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid rgba(160, 82, 45, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: none;
+            color: #f5e6d3;
+            font-size: 1.05em;
+            font-weight: 600;
+            padding: 18px 20px;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: inherit;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.3em;
+            color: #a0522d;
+            flex-shrink: 0;
+            margin-left: 16px;
+            transition: transform 0.2s;
+        }
+
+        .faq-item.open .faq-question::after {
+            content: '\2212';
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 500px;
+            padding: 0 20px 18px;
+        }
+
+        .faq-answer p {
+            color: #a89888;
+            font-size: 0.95em;
+            margin-top: 4px;
+        }
+
+        .faq-answer code {
+            background: rgba(160, 82, 45, 0.15);
+            color: #c0724d;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .faq-answer ul {
+            color: #a89888;
+            margin: 8px 0 8px 20px;
+            font-size: 0.95em;
+        }
+
+        .faq-answer li {
+            margin-bottom: 4px;
+        }
+
+        /* Siri commands table */
+        .siri-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+
+        .siri-table th {
+            text-align: left;
+            color: #f5e6d3;
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(160, 82, 45, 0.3);
+            font-size: 0.9em;
+        }
+
+        .siri-table td {
+            color: #a89888;
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(160, 82, 45, 0.1);
+            font-size: 0.9em;
+        }
+
+        .siri-table code {
+            background: rgba(160, 82, 45, 0.15);
+            color: #c0724d;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        /* Contact form */
+        .contact-form {
+            margin-top: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #f5e6d3;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.95em;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(160, 82, 45, 0.25);
+            border-radius: 10px;
+            color: #f5e6d3;
+            font-size: 1em;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #a0522d;
+        }
+
+        .form-group textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .form-group select option {
+            background: #2c2c2e;
+            color: #f5e6d3;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #a0522d, #7a3e22);
+            color: #f5e6d3;
+            border: none;
+            padding: 14px 36px;
+            border-radius: 10px;
+            font-size: 1.05em;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+
+        .form-note {
+            color: #666;
+            font-size: 0.85em;
+            margin-top: 12px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 32px 24px;
+            border-top: 1px solid rgba(160, 82, 45, 0.12);
+        }
+
+        .footer-links {
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            color: #a0522d;
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 0.9em;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #c0724d;
+        }
+
+        .footer-copy {
+            color: #555;
+            font-size: 0.85em;
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                padding: 90px 16px 40px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-links a {
+                margin-left: 16px;
+                font-size: 0.85em;
+            }
+
+            .siri-table {
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="app-icon.png" alt="Stache-it icon">
+                <span>Stache-it<sup style="font-size:0.6em;margin-left:3px">™</sup></span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>Support</h1>
+
+        <!-- FAQ Section -->
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <button class="faq-question">What is Stache-it?</button>
+            <div class="faq-answer">
+                <p>Stache-it is a personal memory vault for iPhone. Save facts, notes, and ideas with your voice via Siri or by typing in the app. Everything is secured with Face ID and synced across your devices with iCloud.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Is Stache-it free?</button>
+            <div class="faq-answer">
+                <p>Yes! Stache-it is free to download and use. The free version includes Siri commands, Face ID protection, iCloud sync, and AI smart categories. Stache-it Premium ($1.99 one-time) unlocks nested folders, auto-splitting of spoken lists, and tree-view sharing.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">What Siri commands can I use?</button>
+            <div class="faq-answer">
+                <table class="siri-table">
+                    <tr><th>Command</th><th>What it does</th></tr>
+                    <tr><td><code>Add to MyStache</code></td><td>Save a new fact or note</td></tr>
+                    <tr><td><code>Fetch MyStache</code></td><td>Look up a saved stache by name</td></tr>
+                    <tr><td><code>List MyStache</code></td><td>See all your staches</td></tr>
+                    <tr><td><code>Edit MyStache</code></td><td>Change a stache's name or value</td></tr>
+                    <tr><td><code>Delete from MyStache</code></td><td>Remove a stache</td></tr>
+                    <tr><td><code>Share MyStache</code></td><td>Share a stache via Messages, Mail, etc.</td></tr>
+                </table>
+                <p>Say <code>"Hey Siri, add to my Stache"</code> to get started. Siri will ask you for a label and a value.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How does iCloud sync work?</button>
+            <div class="faq-answer">
+                <p>Stache-it saves your data locally on your device and syncs it to your personal iCloud account via Apple's CloudKit. This means your staches are available on all your devices signed into the same Apple ID. We never see or store your data on our servers.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How is my data protected?</button>
+            <div class="faq-answer">
+                <p>Stache-it uses Face ID (or Touch ID) to lock access to your staches. Biometric data is processed entirely by your device's secure enclave and is never accessible to the app. Your data is stored on-device and in your personal iCloud account — no third-party servers, no tracking, no analytics.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">What are AI Smart Categories?</button>
+            <div class="faq-answer">
+                <p>On iOS 26 and later, Stache-it uses Apple's on-device AI (Foundation Models) to automatically sort your staches into categories like People, Finance, Health, Travel, and more. Everything runs on your device — no data is sent anywhere. You can toggle this feature on or off in Settings > AI Features.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">What's included in Stache-it Premium?</button>
+            <div class="faq-answer">
+                <p>Stache-it Premium is a one-time $1.99 purchase that unlocks:</p>
+                <ul>
+                    <li><strong>Nested folders</strong> — organize staches in hierarchies up to 10 levels deep</li>
+                    <li><strong>Auto-split lists</strong> — say "apples, bananas, oranges" and they become separate items</li>
+                    <li><strong>Tree-view sharing</strong> — share structured hierarchies with proper indentation</li>
+                </ul>
+                <p>No subscription — pay once, keep it forever.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Can I delete my data?</button>
+            <div class="faq-answer">
+                <p>Yes. You can delete individual staches or all staches at any time within the app. Deleting the app removes all locally stored data. iCloud data can be managed through your device's iCloud settings.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">What iOS version do I need?</button>
+            <div class="faq-answer">
+                <p>Stache-it requires iOS 18.5 or later. AI Smart Categories require iOS 26 or later. All other features work on iOS 18.5+.</p>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <h2>Contact Us</h2>
+        <p style="color:#a89888;margin-bottom:8px;">Can't find your answer above? Send us a message and we'll get back to you.</p>
+
+        <form class="contact-form" action="https://formsubmit.co/support@stache-it.com" method="POST">
+            <!-- FormSubmit config -->
+            <input type="hidden" name="_subject" value="Stache-it Support Request">
+            <input type="hidden" name="_captcha" value="true">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://stache-it.com/thanks.html">
+            <input type="text" name="_honey" style="display:none">
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="topic">Topic</label>
+                <select id="topic" name="topic" required>
+                    <option value="" disabled selected>Select a topic</option>
+                    <option value="Bug Report">Bug Report</option>
+                    <option value="Feature Request">Feature Request</option>
+                    <option value="Siri Commands">Siri Commands</option>
+                    <option value="iCloud Sync">iCloud Sync</option>
+                    <option value="Premium / Purchase">Premium / Purchase</option>
+                    <option value="Account / Data">Account / Data</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Describe your issue or question..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+            <p class="form-note">We typically respond within 24 hours.</p>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 SAS LLC. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isOpen = item.classList.contains('open');
+                // Close all other items
+                document.querySelectorAll('.faq-item.open').forEach(openItem => {
+                    openItem.classList.remove('open');
+                });
+                // Toggle current item
+                if (!isOpen) {
+                    item.classList.add('open');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
