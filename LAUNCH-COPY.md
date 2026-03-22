@@ -39,7 +39,7 @@ Key features:
 - On-device AI categorization (iOS 26)
 - Zero tracking, zero ads, zero third-party analytics
 
-Built by SAS LLC with privacy as a first principle. Your staches stay on your device and in your personal iCloud account — we never see your data.
+Built by Sturm Advisory Services LLC with privacy as a first principle. Your staches stay on your device and in your personal iCloud account — we never see your data.
 
 Download free: https://apps.apple.com/app/stache-it/id6748416239
 
